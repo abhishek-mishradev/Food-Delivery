@@ -28,7 +28,9 @@ const Order = () => {
     })
     if (response.data.success) {
       await fetchAllOrders();
+      toast.success("status change")
     }
+   
   }
 
 

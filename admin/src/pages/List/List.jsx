@@ -13,6 +13,7 @@ const List = ({url}) => {
 
     if (response.data.success) {
       setList(response.data.data);
+      toast("All list of foods")
     } else {
       toast.error("Error");
     }
