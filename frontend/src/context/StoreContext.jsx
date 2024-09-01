@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { food_list, menu_list } from "../assets/assets";
 import axios from "axios";
+import { toast } from 'react-toastify';
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
@@ -28,6 +29,7 @@ const StoreContextProvider = (props) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (token) {
             await axios.post(url + "/api/cart/remove", { itemId }, { headers: { token } });
+            toast("Food Removed")
         }
     }
 
